@@ -5,26 +5,35 @@
 #sudo reboot
 
 # Install cuda 10.01
-## link https://medium0.com/@stephengregory_69986/installing-cuda-10-1-on-ubuntu-20-04-e562a5e724a0
-## Clean up
-#sudo rm /etc/apt/sources.list.d/cuda* -y
-#sudo apt remove --autoremove nvidia-cuda-toolkit -y
-#sudo apt remove --autoremove nvidia-* -y
-#
-#sudo apt-get purge nvidia* -y
-#sudo apt-get autoremove -y
-#sudo apt-get autoclean -y
-#
-#sudo rm -rf /usr/local/cuda* -y
-#
-### Install
-#sudo apt update
-#sudo add-apt-repository ppa:graphics-drivers -y
-#sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
-#sudo bash -c 'echo "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64 /" > /etc/apt/sources.list.d/cuda.list'
-#sudo bash -c 'echo "deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64 /" > /etc/apt/sources.list.d/cuda_learn.list'
-#sudo apt update
-#sudo apt install cuda-10-1 -y
+# link https://medium0.com/@stephengregory_69986/installing-cuda-10-1-on-ubuntu-20-04-e562a5e724a0
+# Clean up
+sudo rm /etc/apt/sources.list.d/cuda* -y
+sudo apt remove --autoremove nvidia-cuda-toolkit -y
+sudo apt remove --autoremove nvidia-* -y
+
+sudo apt-get purge nvidia* -y
+sudo apt-get autoremove -y
+sudo apt-get autoclean -y
+
+sudo rm -rf /usr/local/cuda*
+
+### Install cuda 10.1
+sudo apt update
+sudo add-apt-repository ppa:graphics-drivers -y
+sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
+sudo bash -c 'echo "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64 /" > /etc/apt/sources.list.d/cuda.list'
+sudo bash -c 'echo "deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64 /" > /etc/apt/sources.list.d/cuda_learn.list'
+sudo apt update
+sudo apt install cuda-10-1 -y
+
+### Install cuda 11.0.2
+#wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
+#sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
+#wget http://developer.download.nvidia.com/compute/cuda/11.0.2/local_installers/cuda-repo-ubuntu2004-11-0-local_11.0.2-450.51.05-1_amd64.deb
+#sudo apt install ./cuda-repo-ubuntu2004-11-0-local_11.0.2-450.51.05-1_amd64.deb
+#sudo apt-key add /var/cuda-repo-ubuntu2004-11-0-local/7fa2af80.pub
+#sudo apt-get update
+#sudo apt-get -y install cuda
 #
 ### Add PATH
 #echo 'export PATH=/usr/local/cuda-10.1/bin${PATH:+:${PATH}}' >> ~/.bashrc
@@ -32,6 +41,13 @@
 #source ~/.bashrc
 #sudo ldconfig
 #sudo apt install libcudnn7
+
+# Go to link https://developer.nvidia.com/rdp/cudnn-archive, click the following: “Download cuDNN v7.5.0 (Feb 21, 2019), for CUDA 10.0” and then “cuDNN Library for Linux” and install:
+
+# tar -xf cudnn-10.0-linux-x64-v7.5.0.56.tgz
+# sudo cp -R cuda/include/* /usr/local/cuda-10.1/include
+# sudo cp -R cuda/lib64/* /usr/local/cuda-10.1/lib64
+
 
 # Install Anaconda
 
@@ -46,28 +62,28 @@
 
 # Docker
 ## Clear
-sudo apt-get remove docker docker-engine docker.io containerd runc
-sudo rm -rf /var/lib/docker
-sudo rm -rf /var/lib/containerd
-## Install
-
-### Set up docker repository
-sudo apt-get update
-sudo apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-echo \
-  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-### Install docker engine
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
-
-### Verify
-sudo docker run hello-world
+#sudo apt-get remove docker docker-engine docker.io containerd runc
+#sudo rm -rf /var/lib/docker
+#sudo rm -rf /var/lib/containerd
+### Install
+#
+#### Set up docker repository
+#sudo apt-get update
+#sudo apt-get install \
+#    apt-transport-https \
+#    ca-certificates \
+#    curl \
+#    gnupg
+#curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+#echo \
+#  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+#  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+#### Install docker engine
+#sudo apt-get update
+#sudo apt-get install docker-ce docker-ce-cli containerd.io
+#
+#### Verify
+#sudo docker run hello-world
 
 
 
