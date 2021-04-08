@@ -6,6 +6,7 @@ git# check size of directory
 
 # find one file in system
 + sudo find . -name *irtualenvwrapper.sh
++ sudo find / -name 'libcudart.so.10.1' 
 
 # show all environment in ubuntu
 + locate -b '\activate' | grep "/home"
