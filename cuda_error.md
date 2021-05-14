@@ -14,13 +14,31 @@
 
 4. Could not load dynamic library 'libcublas.so.10'; dlerror: libcublas.so.10: cannot open shared object file: No such file or directory
    + conda install -c anaconda cudatoolkit=10.1
+   
+5. OSError: libnccl.so.2: cannot open shared object file: No such file or directory
+   + ref in [here](https://stackoverflow.com/questions/66786887/getting-oserror-libnccl-so-2-while-importing-mxnet)
+   + downgraded to mxnet-cu101==1.7 
 
 5. Could not load dynamic library 'libcudnn.so.7'; dlerror: libcudnn.so.7: cannot open shared object file: No such file or directory
-sudo ldconfig /usr/local/cuda/lib64
+   + sudo ldconfig /usr/local/cuda/lib64
 
 ## TensorRT
 
 1. Error in verifyHeader: 0 (Version tag does not match. Note: Current Version: 96, Serialized Engine Version: 87)
     
     ```If the engine was created and ran on different versions```
+
+## Tensorflow 1.0 to 2.0
+
+1. ModuleNotFoundError: No module named 'tensorflow.contrib' import slim
+   https://github.com/google-research/tf-slim
+   import tf_slim as slim
    
+2. AttributeError: module 'tensorflow' has no attribute 'GraphKeys'
+   import tensorflow as tf -> import tensorflow.compat.v1 as tf
+   
+3. RuntimeError: tf.placeholder() is not compatible with eager execution.
+   tf.compat.v1.disable_eager_execution()
+   
+4. attributeerror 'int' object has no attribute 'value'
+   variable_parameters *= dim.value -> variable_parameters *= dim
