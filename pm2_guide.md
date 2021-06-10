@@ -27,4 +27,7 @@ certbot --nginx -d konga.core.greenlabs.ai -d www.konga.core.greenlabs.ai
 pm2 resurrect
 pm2 status
 pm2 restart 0
-pm2 stop 0```
+pm2 stop 0
+pm2 show run_model
+pm2 start python.py
+```
