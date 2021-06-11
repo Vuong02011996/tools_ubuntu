@@ -17,6 +17,7 @@ services:
     environment:
       POSTGRES_USER: kong
       POSTGRES_DB: kong
+      POSTGRES_HOST_AUTH_METHOD: trust
     ports:
       - "5432:5432"
     healthcheck:
