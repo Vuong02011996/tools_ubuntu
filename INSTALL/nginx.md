@@ -32,7 +32,7 @@
 + Nếu máy 133 đã được public port 80 và 443 thì mới dùng certbox cấp chứng chỉ ssl cho domain (https). Còn không chỉ chạy được domain http.
 + Hiện tại a Quang đã dùng máy ảo 192.168.111.55(ssh ggsysadmin@192.168.111.55) để mở port 80, 443 để dns proxy pass. cho all domain `*.greenlab.ai.`
 + Chỉ cần ssh vô máy 55(ssh dev@192.168.111.55 | pass dev##4321) để config nginx.
-+ Copy ssl key có sẵn vào file `*.conf` là oke.
++ Copy ssl key có sẵn(a Quang tạo 1 key general) vào file `*.conf` là oke.
 + ```commandline
         ssl_certificate /etc/ssl/private/greenlabs.pem;
         ssl_certificate_key /etc/ssl/private/greenlabs.key;
