@@ -86,7 +86,8 @@ echo \
 ### Install docker engine
 sudo apt-get update
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io
-#
+# docker compose
+sudo apt  install docker-compose
 #### Verify
 #sudo docker run hello-world
 
