@@ -33,6 +33,7 @@
 + Hiện tại a Quang đã dùng máy ảo 192.168.111.55(ssh ggsysadmin@192.168.111.55) để mở port 80, 443 để dns proxy pass. cho all domain `*.greenlab.ai.`
 + Chỉ cần ssh vô máy 55(ssh dev@192.168.111.55 | pass dev##4321) để config nginx.
 + Copy ssl key có sẵn(a Quang tạo 1 key general) vào file `*.conf` là oke.
++ 192.168.111.55 -> 192.168.111.146.(root |ggadminbk)
 + ```commandline
         ssl_certificate /etc/ssl/private/greenlabs.pem;
         ssl_certificate_key /etc/ssl/private/greenlabs.key;

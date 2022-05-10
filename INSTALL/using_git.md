@@ -8,6 +8,9 @@ Enter
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 Add to Setting account -> SSH
+
+# remote again to push with SSH.
+git remote set-url origin git@github.com:Vuong02011996/tools_ubuntu.git
 ```
 # Basic command
 `clone project`: git clone ... 
