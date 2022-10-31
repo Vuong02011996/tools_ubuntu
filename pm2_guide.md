@@ -21,6 +21,11 @@ Create file ecosystem.config.yml:
     
 pm2 restart ecosystem.test.config.yaml
 
+# Auto start when reboot
++ [Auto start when reboot](https://stackoverflow.com/questions/60095316/does-pm2-auto-restart-application-after-reboot-by-default)
+pm2 start ecosystem.test.config.yaml
+pm2 startup
+pm2 save 
 
 # Command
 ```
