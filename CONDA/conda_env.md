@@ -8,6 +8,9 @@
 #bash /tmp/Anaconda3-2020.02-Linux-x86_64.sh -y
 #source /home/$USER/.bashrc
 #conda config --set auto_activate_base false
+
+Error: conda not init - set PATH
+https://saturncloud.io/blog/solving-the-conda-command-not-found-issue-after-installing-anaconda3/
 ```
 
 
